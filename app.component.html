@@ -1,0 +1,54 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<html>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<body ng-app="myApp" ng-controller="todoCtrl" style="background-color":#a3f7be>
+<div id="my" class="header" style="text-align:center">
+  <h1 style="margin:5px">
+  <script src="angular.min.js"></script>
+    Welcome to TODO LIST!
+  </h1>
+  
+  <h2>
+    Select the category  of the list:
+  </h2>
+  <input type="text" ng-model="todoInput" size="20" placeholder="Add new">
+  
+  <input type="button" value="Add new" ng-click="todoAdd">
+  <br><br>
+  
+  <select>
+  <option value="Shopping List">Shopping List</option>
+  <option value="Study List">Study List</option>
+  <option value="WorkOut List">WorkOut List</option>
+  <option value="Personal">Personal</option>
+  <option value="Travel">Travel</option>
+  
+</select> 
+</div>
+
+<div ng-repeat="x in todoList">
+<input type="checkbox" ng-model="x.done" ng-show="myValue"><span ng-bind="x.todoText"></span>
+</div>
+<script type="text/javascript">
+var app= angular.module('myApp',[]);
+app.controller('todoCtrl',function($scope){
+$scope.todoList = [];
+$scope.todoAdd = function(){
+if($scope.todoInput="")
+{
+$scope.todoList.push({todoText:$scope.todoInput,done:false});
+$scope.todoInput= "";
+$scope.myValue=true;
+}
+};
+$scope.remove= function(){
+var oldList=$scope.todoList;
+$scope.todoList= [];
+angular.forEach(oldList,function(x){};
+if(!x.done) $scope.todoList.push(x);
+});
+</script>
+</body>
+
+</html>
